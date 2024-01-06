@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar with Sections</title>
+    <style>
+        /* Add your existing CSS styles here */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 10px;
+        }
+
+        .navbar-list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .navbar-item {
+            margin: 0;
+        }
+
+        .navbar-link {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-menu a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <ul class="navbar-list">
+        <li class="navbar-item"><button class="navbar-link active" data-nav-link="about">About</button></li>
+        <li class="navbar-item"><button class="navbar-link" data-nav-link="education">Education</button></li>
+        <li class="navbar-item"><button class="navbar-link" data-nav-link="works">Works</button></li>
+        <li class="navbar-item"><button class="navbar-link" data-nav-link="skills">Skills</button></li>
+        <li class="navbar-item"><button class="navbar-link" data-nav-link="contact">Contact</button></li>
+        <li class="navbar-item">
+            <div class="dropdown">
+                <button class="navbar-link" data-toggle="dropdown">...</button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#resume-section">Resume</a>
+                    <a class="dropdown-item" href="#certifications-section">Certifications</a>
+                    <!-- Add more dropdown items as needed -->
+                </div>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<section id="about">
+    <!-- Content for the About section goes here -->
+    <h2>About Section</h2>
+    <p>This is the content of the About section.</p>
+</section>
+
+<section id="education">
+    <!-- Content for the Education section goes here -->
+    <h2>Education Section</h2>
+    <p>This is the content of the Education section.</p>
+</section>
+
+<section id="works">
+    <!-- Content for the Works section goes here -->
+    <h2>Works Section</h2>
+    <p>This is the content of the Works section.</p>
+</section>
+
+<section id="skills">
+    <!-- Content for the Skills section goes here -->
+    <h2>Skills Section</h2>
+    <p>This is the content of the Skills section.</p>
+</section>
+
+<section id="contact">
+    <!-- Content for the Contact section goes here -->
+    <h2>Contact Section</h2>
+    <p>This is the content of the Contact section.</p>
+</section>
+
+<section id="resume-section">
+    <!-- Content for the Resume section goes here -->
+    <h2>Resume Section</h2>
+    <p>This is the content of the Resume section.</p>
+</section>
+
+<section id="certifications-section">
+    <!-- Content for the Certifications section goes here -->
+    <h2>Certifications Section</h2>
+    <p>This is the content of the Certifications section.</p>
+</section>
+
+<script>
+    // JavaScript for smooth scrolling
+    document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll('[data-nav-link]');
+        
+        links.forEach(link => {
+            link.addEventListener('click', function() {
+                const targetSection = document.getElementById(this.dataset.navLink);
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
